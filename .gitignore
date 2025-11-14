@@ -34,3 +34,7 @@ build/
 
 # Secret properties file
 application-secrets.properties
+
+# Node.js Proxy
+lingo-proxy/node_modules
+lingo-proxy/.env

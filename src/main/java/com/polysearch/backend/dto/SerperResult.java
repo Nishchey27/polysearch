@@ -3,10 +3,10 @@ package com.polysearch.backend.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SerperResponse {
-    private List<SerperResult> organic;
+public class SerperResult {
+    private String title;
+    private String link;
+    private String snippet;
 }
