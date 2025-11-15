@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div class="flex flex-col gap-5">
+
+    <div th:each="result : ${results}" 
+         class="bg-gray-800/50 p-5 rounded-lg border border-gray-700 
+                transition-all duration-300 
+                hover:border-blue-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-blue-900/50"
+    >
+        
+        <a th:href="${result.url}" target="_blank" class="block">
+            <h3 th:text="${result.title}" class="text-xl font-medium text-blue-400 hover:underline truncate">
+                Java Tutorial: Learn Java Programming
+            </h3>
+        </a>
+        
+        <a th:href="${result.url}" target="_blank" class="block">
+            <span th:text="${result.url}" class="text-sm text-green-400 break-all">
+                https://www.codecademy.com/learn/learn-java
+            </span>
+        </a>
+
+        <p th:text="${result.snippet}" class="text-gray-300 mt-2">
+            Free course. Java for beginners. Take this course...
+        </p>
+
+    </div>
+
+</div>
+</body>
+</html>
