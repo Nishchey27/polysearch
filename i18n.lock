@@ -1,0 +1,8 @@
+version: 1
+checksums:
+  ccd9883a935d21ec9b3e775ce5a85195:
+    header.title: b090b28c36a7711954f8dffeced35434
+    header.slogan: f94bab94fb41069c1a445b5ab0357fa3
+    search.placeholder: e41f9bd4ca958f24d873f7413fa8cea1
+    search.button: 49dd6c21604b5e8d4153ff1aff2177e1
+    loading.text: 56cf28d6712bf3f7f73af2a81974ac45
