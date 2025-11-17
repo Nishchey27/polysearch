@@ -14,26 +14,23 @@ public class TranslationService {
 
     private RestClient restClient;
 
-    // We don't need @Value for the URL anymore,
-    // since it's always our local proxy.
+    
 
     public TranslationService() {
     }
 
     @PostConstruct
     private void init() {
-        // 1. THE BIG CHANGE:
-        //    We are now calling our OWN proxy server.
+        
         this.restClient = RestClient.builder()
                 .baseUrl("http://localhost:3001") // <-- CALLING THE PROXY
                 .defaultHeader("Content-Type", "application/json")
                 .defaultHeader("Accept", "application/json")
                 .build();
-        // We don't need the Lingo API key here anymore,
-        // because the Node.js proxy is handling it.
+       
     }
 
-    // THIS IS THE REAL IMPLEMENTATION
+    
     public String detectLanguage(String text) {
         System.out.println("[Java] Calling Proxy to detect: " + text);
         LingoDetectRequest requestBody = new LingoDetectRequest(text);
@@ -54,7 +51,7 @@ public class TranslationService {
         return "en"; // Fallback
     }
 
-    // THIS IS THE REAL IMPLEMENTATION
+   
     public String translate(String text, String sourceLang, String targetLang) {
         System.out.println("[Java] Calling Proxy to translate ("+sourceLang+"->"+targetLang+"): " + text);
         LingoTranslateRequest requestBody = new LingoTranslateRequest(text, sourceLang, targetLang);

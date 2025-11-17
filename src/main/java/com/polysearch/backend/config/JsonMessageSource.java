@@ -3,8 +3,8 @@ package com.polysearch.backend.config;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.support.AbstractMessageSource;
-import org.springframework.core.env.Environment; // NEW IMPORT
-import org.springframework.context.EnvironmentAware; // NEW IMPORT
+import org.springframework.core.env.Environment; 
+import org.springframework.context.EnvironmentAware; 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -19,10 +19,10 @@ public class JsonMessageSource extends AbstractMessageSource implements Environm
     private final ObjectMapper objectMapper = new ObjectMapper();
     private final Map<Locale, Map<String, String>> messagesCache = new ConcurrentHashMap<>();
     
-    private Environment environment; // NEW FIELD
-    private Path projectRootPath; // NEW FIELD
+    private Environment environment; 
+    private Path projectRootPath; 
     
-    // NEW METHOD: Spring calls this immediately to give us the environment
+    
     @Override
     public void setEnvironment(Environment environment) {
         this.environment = environment;
@@ -41,14 +41,12 @@ public class JsonMessageSource extends AbstractMessageSource implements Environm
 }
 
     private Map<String, String> loadMessages(Locale locale) {
-        // Use the reliably resolved projectRootPath to build the full path
+        
         Path jsonPath = projectRootPath.resolve(locale.getLanguage() + ".json");
         
-        // This is the new, clean diagnostic check
-        // System.out.println("Attempting to load: " + jsonPath.toAbsolutePath());
 
         if (!Files.exists(jsonPath)) { 
-            // ... (rest of the fallback code remains the same)
+            
             if (!locale.equals(Locale.ENGLISH)) {
                 return getMessages(Locale.ENGLISH);
             }
@@ -66,7 +64,7 @@ public class JsonMessageSource extends AbstractMessageSource implements Environm
         }
     }
     
-    // (Other methods like resolveCode, getMessages remain the same)
+    
     protected MessageFormat resolveCode(String code, Locale locale) {
         Map<String, String> localeMessages = getMessages(locale);
         String message = localeMessages.get(code);
