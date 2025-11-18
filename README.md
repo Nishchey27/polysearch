@@ -142,3 +142,6 @@ Example Success Response (JSON)
     "url": "[https://www.reddit.com/r/learnjava/comments/](https://www.reddit.com/r/learnjava/comments/)..."
   }
 ]
+```
+**AI assitance disclosure :**
+I used AI tools for help with certain parts of the project- mainly for clarifying concepts, and generating code snippets for the technology i was learning for the first time. All AI generated suggestions were reviewed, tested, and integrated by me. the core idea architecture logic final implementaion are my own.
